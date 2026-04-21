@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات التدريب والاستشارة | غسان أبوحميد</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* تنسيقات خاصة جداً لصفحة الخدمات */
+        .services-list-detailed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-full-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .service-icon-header {
+            width: 70px; height: 70px;
+            background-color: rgba(255, 31, 31, 0.1);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid var(--neon-red-dim);
+            font-size: 2rem;
+            color: var(--neon-red);
+            text-shadow: 0 0 10px var(--neon-red);
+        }
+        
+        .service-full-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .services-list-detailed { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>غسان أبوحميد</h1>
+                    <span>مدرب فريلانسر</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="inner-page-header">
+        <div class="container">
+            <h2>اختر مسارك للنجاح</h2>
+            <p class="subtitle">خدمات تدريبية مكثفة واستشارات استراتيجية مصممة لتأخذك خطوة بخطوة نحو أول عميل حقيقي.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="services-list-detailed">
+                
+                <div class="dark-card service-full-card">
+                    <div>
+                        <div class="service-icon-header"><i class="fas fa-chalkboard-user"></i></div>
+                        <h3 class="card-title-neon">تدريب <span>فردي</span></h3>
+                        <p class="service-description">جلسات مخصصة مكثفة (One-on-One) أتابعك فيها شخصياً لبناء ملفك وقنص عملائك.</p>
+                        <ul class="neon-list">
+                            <li>تحليل مهاراتك وتحديد المجال الأنسب.</li>
+                            <li>بناء ملف شخصي احترافي (Upwork/Mostaql).</li>
+                            <li>استراتيجيات كتابة العروض (Proposals).</li>
+                            <li>متابعة مباشرة حتى إغلاق الصفقة الأولى.</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://wa.me/970595505980?text=أريد_استفسار_عن_التدريب_الفردي" class="btn-card">اشترك الآن</a>
+                    </div>
+                </div>
+
+                <div class="dark-card service-full-card">
+                    <div>
+                        <div class="service-icon-header"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="card-title-neon"><span>كورسات</span></h3>
+                        <p class="service-description">برنامج تدريبي كامل مسجل ومنظم، يحتوي على الخطة العملية (7 أيام) لبدء العمل الحر.</p>
+                        <ul class="neon-list">
+                            <li>فهم سوق العمل الحر وقواعد اللعبة.</li>
+                            <li>خطوات عملية يومية للتطبيق.</li>
+                            <li>نماذج جاهزة للتعامل مع العملاء.</li>
+                            <li>الوصول لمجتمع الطلاب للدعم.</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://wa.me/970595505980?text=أريد_استفسار_عن_الكورسات" class="btn-card">احجز مكانك</a>
+                    </div>
+                </div>
+
+                <div class="dark-card service-full-card">
+                    <div>
+                        <div class="service-icon-header"><i class="fas fa-lightbulb"></i></div>
+                        <h3 class="card-title-neon"><span>استشارة</span></h3>
+                        <p class="service-description">جلسة استراتيجية سريعة (45 دقيقة) لتشخيص وحل مشكلة محددة تواجهك فوراً.</    </p>
+                        <ul class="neon-list">
+                            <li>تشخيص المشكلة (تسعير، عميل متعب، شتات).</li>
+                            <li>خطوات عملية فورية للحل.</li>
+                            <li>توفير الوقت والجهد في التجربة.</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://wa.me/970595505980?text=أريد_حجز_استشارة_سريعة" class="btn-card">احجز الجلسة</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <p>© 2026 غسان أبوحميد. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="https://wa.me/970595505980" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/g.abuhmaid01" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ghassan-abu-hmaid-429a9b33a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/g_abuhmaid02" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+/* --- الإعدادات العامة والمتغيرات --- */
+:root {
+    /* تم استخراج الألوان مباشرة من صورتك الشخصية */
+    --bg-color: #050505;        /* أسود عميق للخلفية */
+    --card-bg: #101010;          /* أسود فاتح قليلاً للكروت */
+    --text-main: #ffffff;        /* أبيض للنصوص الرئيسية */
+    --text-muted: #a0a0a0;       /* رمادي للنصوص الثانوية */
+    --neon-red: #ff1f1f;         /* الأحمر النيوني الأساسي للتوهج */
+    --neon-red-dim: rgba(255, 31, 31, 0.3); /* أحمر شفاف للتأثيرات الخلفية */
+    
+    --font-family: 'Cairo', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+/* --- العناوين الرئيسية --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--text-main);
+    text-shadow: 0 0 10px var(--neon-red-dim);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--neon-red);
+    margin: 10px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--neon-red);
+}
+
+/* --- الهيدر (الشريط العلوي) --- */
+header {
+    background-color: rgba(16, 16, 16, 0.95);
+    padding: 15px 0;
+    border-bottom: 1px solid #222;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+.logo span {
+    font-size: 0.9rem;
+    color: var(--neon-red);
+    font-weight: 600;
+}
+
+/* --- قسم الهيرو (البطل) --- */
+.hero {
+    padding: 150px 0 100px; /* مسافة علوية للهيدر الثابت */
+    background: radial-gradient(circle at 20% 50%, #1a0505 0%, var(--bg-color) 100%);
+    position: relative;
+}
+
+/* إضافة تأثير المربعات النيونية الخفية في الخلفية (مثل صورتك) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZjFmMWYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');
+    opacity: 0.3;
+}
+
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.freelancer-tag {
+    color: var(--neon-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.neon-text {
+    color: var(--neon-red);
+    text-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 550px;
+}
+
+/* زر النيون القوي */
+.btn-neon {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: transparent;
+    color: var(--neon-red);
+    border: 2px solid var(--neon-red);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px var(--neon-red-dim), inset 0 0 10px var(--neon-red-dim);
+}
+
+.btn-neon:hover {
+    background-color: var(--neon-red);
+    color: var(--bg-color);
+    box-shadow: 0 0 30px var(--neon-red), 0 0 60px var(--neon-red);
+    transform: translateY(-2px);
+}
+
+/* تأثير الصورة */
+.hero-image {
+    position: relative;
+    justify-self: center;
+}
+
+.hero-image img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+    /* إضافة حدود نيون خفيفة جداً حول الصورة */
+    border: 2px solid rgba(255, 31, 31, 0.1);
+}
+
+.image-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%; height: 120%;
+    background: radial-gradient(circle, var(--neon-red-dim) 0%, rgba(0,0,0,0) 70%);
+    z-index: 1;
+    filter: blur(20px);
+}
+
+/* --- قسم الإحصائيات (النتائج) --- */
+.stats {
+    padding: 100px 0;
+    background-color: var(--card-bg);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.stat-card {
+    background-color: var(--bg-color);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--neon-red);
+    box-shadow: 0 0 20px var(--neon-red-dim);
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: var(--neon-red);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--neon-red);
+}
+
+.stat-card h3 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* --- قسم الخدمات --- */
+.services {
+    padding: 100px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #222;
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    background-color: #151515;
+    border-color: rgba(255, 31, 31, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.icon-box {
+    width: 60px; height: 60px;
+    background-color: rgba(255, 31, 31, 0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 25px;
+    border: 1px solid var(--neon-red-dim);
+}
+
+.icon-box i {
+    font-size: 1.8rem;
+    color: var(--neon-red);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* --- الفوتر (التذييل) --- */
+footer {
+    padding: 40px 0;
+    border-top: 1px solid #222;
+    background-color: var(--card-bg);
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.social-links a:hover {
+    color: var(--neon-red);
+    text-shadow: 0 0 10px var(--neon-red);
+    transform: scale(1.1);
+}
+
+/* --- التجاوب مع الشاشات (Responsive) --- */
+@media (max-width: 992px) {
+    .hero-content h2 { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: -1; /* الصورة تظهر أولاً على الموبايل */
+        margin-bottom: 30px;
+    }
+    
+    .hero-image img {
+        max-width: 300px;
+    }
+    
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .section-title { font-size: 2rem; }
+    
+    .footer-wrapper {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   تنسيقات إضافية للصفحات الداخلية (نتائج والخدمات)
+   ========================================= */
+
+/* رأس الصفحة الداخلي (Inner Page Header) */
+.inner-page-header {
+    padding: 150px 0 60px; /* مسافة علوية للهيدر الثابت */
+    background: radial-gradient(circle at 50% -20%, #2a0505 0%, var(--bg-color) 70%);
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.inner-page-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-main);
+    text-shadow: 0 0 15px var(--neon-red-dim);
+    margin-bottom: 10px;
+}
+
+.inner-page-header .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* قسم المحتوى العام */
+.content-section {
+    padding: 80px 0;
+}
+
+/* تنسيق عام للكروت في الصفحات الداخلية */
+.dark-card {
+    background-color: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 30px;
+    transition: var(--transition);
+}
+
+.dark-card:hover {
+    border-color: var(--neon-red-dim);
+    box-shadow: 0 10px 30px rgba(255, 31, 31, 0.1);
+}
+
+/* تنسيق العناوين الفرعية داخل الكروت */
+.card-title-neon {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.card-title-neon span {
+    color: var(--neon-red);
+}
+
+/* تنسيق القوائم النيونية */
+.neon-list {
+    list-style: none;
+    padding: 0;
+}
+
+.neon-list li {
+    position: relative;
+    padding-right: 30px;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.neon-list li::before {
+    content: '\f105'; /* أيقونة سهم FontAwesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--neon-red);
+    text-shadow: 0 0 5px var(--neon-red);
+}
+
+/* تنسيق أزرار الاتصال داخل الكروت */
+.card-action {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-card {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: rgba(255, 31, 31, 0.05);
+    color: var(--text-main);
+    border: 1px solid var(--neon-red-dim);
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.btn-card:hover {
+    background-color: var(--neon-red);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* =========================================
+   تجاوب الصفحات الداخلية للموبايل
+   ========================================= */
+@media (max-width: 768px) {
+    .inner-page-header h2 { font-size: 2.2rem; }
+    .inner-page-header .subtitle { font-size: 1rem; }
+}
+
+/* تنسيق الرابط حول كروت الخدمات */
+.service-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* تنسيق "التفاصيل" داخل الكرت */
+.read-more {
+    display: inline-block;
+    color: var(--neon-red);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.read-more i {
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+.service-card:hover .read-more i {
+    transform: translateX(-5px);
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  z-index: 999;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  background-color: #1ebe5d;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}

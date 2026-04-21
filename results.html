@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص نجاح ونتائج حقيقية | غسان أبوحميد</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* =========================================
+           تنسيقات خاصة ومقنعة لصفحة النتائج
+           ========================================= */
+        
+        .results-section-detailed {
+            padding: 100px 0;
+            background-color: var(--bg-color);
+        }
+
+        .result-container-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        /* تنسيق كرت قصة النجاح البانورامي */
+        .success-story-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-story-card:hover {
+            border-color: rgba(255, 31, 31, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* تأثير تبديل الاتجاه بين القصص */
+        .result-container-wrap .success-story-card:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .result-container-wrap .success-story-card:nth-child(even) .story-text-col {
+            order: 2;
+        }
+
+        .result-container-wrap .success-story-card:nth-child(even) .story-evidence-col {
+            order: 1;
+        }
+
+        /* شارة نيون علوية */
+        .story-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 31, 31, 0.1);
+            color: var(--neon-red);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid var(--neon-red-dim);
+            z-index: 10;
+        }
+
+        /* عمود النص */
+        .story-text-col {
+            position: relative;
+            z-index: 2;
+        }
+
+        .student-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .student-avatar {
+            width: 50px; height: 50px;
+            background-color: rgba(255, 31, 31, 0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--neon-red);
+            font-size: 1.5rem;
+            border: 1px solid var(--neon-red-dim);
+        }
+
+        .student-meta h4 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .student-meta span {
+            color: var(--neon-red);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .story-quote {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .story-quote::before {
+            content: '"';
+            font-family: serif;
+            font-size: 4rem;
+            color: rgba(255, 31, 31, 0.1);
+            position: absolute;
+            top: -20px;
+            right: -20px;
+        }
+
+        .key-results-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .key-results-list li {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .key-results-list li::before {
+            content: '\f00c'; /* أيقونة تشيك FontAwesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--neon-red);
+            text-shadow: 0 0 5px var(--neon-red);
+        }
+
+        .key-results-list li span {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* عمود الدليل البصري (الصورة) */
+        .story-evidence-col {
+            position: relative;
+            z-index: 1;
+        }
+
+        .evidence-image-wrapper {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 31, 31, 0.1);
+            transition: var(--transition);
+        }
+
+        .evidence-image-wrapper:hover {
+            border-color: var(--neon-red);
+            transform: scale(1.02);
+        }
+
+        .evidence-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) brightness(90%);
+        }
+
+        .evidence-image-wrapper:hover img {
+            filter: none;
+        }
+
+        /* تأثير توهج خلف الصورة */
+        .evidence-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(255, 31, 31, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        /* قسم نداء العمل النهائي */
+        .final-cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(circle, #2a0505 0%, var(--bg-color) 70%);
+            border-top: 1px solid #222;
+        }
+
+        .final-cta-h {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-shadow: 0 0 15px var(--neon-red-dim);
+        }
+
+        .final-cta-p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* تنسيق لسكشن الإحصائيات في هذه الصفحة */
+        .page-stats {
+            padding: 60px 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid #222;
+        }
+
+        /* التجاوب للموبايل */
+        @media (max-width: 992px) {
+            .success-story-card {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .result-container-wrap .success-story-card:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .result-container-wrap .success-story-card:nth-child(even) .story-text-col {
+                order: 1;
+            }
+
+            .result-container-wrap .success-story-card:nth-child(even) .story-evidence-col {
+                order: 2;
+            }
+
+            .evidence-image-wrapper img {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .inner-page-header h2 { font-size: 2.2rem; }
+            .success-story-card { gap: 20px; }
+            .story-quote { font-size: 1.1rem; }
+            .key-results-list li { font-size: 1rem; }
+            .final-cta-h { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>غسان أبوحميد</h1>
+                    <span>مدرب فريلانسر</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="inner-page-header">
+        <div class="container">
+            <h2>أرقام تتحدث.. ونجاحات تتحقق</h2>
+            <p class="subtitle">لسنا مجرد دورة، نحن نصنع مساراً حقيقياً للدخل. شاهد كيف غير طلابنا حياتهم المهنية.</p>
+        </div>
+    </div>
+
+    <section class="results-section-detailed content-section">
+        <div class="container">
+            <div class="result-container-wrap">
+                
+                <article class="success-story-card">
+             
+                    <div class="story-text-col">
+                        <div class="student-profile">
+                            <div class="student-avatar"><i class="fas fa-user-check"></i></div>
+                            <div class="student-meta">
+                                <h4>شمس أبوحليب</h4>
+                                <span>مترجمة وكاتبة محتوى</span>
+                            </div>
+                        </div>
+                        <p class="story-quote">"التحقت بالكورس مع المهندس غسان و عرفت انه ممكن ييجي شغل من منصة الانستا و فعلاً عملت صفحة شغل و اجاني اكتر من طلب و حصلت ع الملف 50$
+"</p>
+                       
+                    </div>
+                    <div class="story-evidence-col">
+                        <div class="evidence-image-wrapper">
+                            <img src="images/3.jpeg" alt="لقطة شاشة لنتيجة براءة - أول عميل">
+                        </div>
+                        <div class="evidence-glow"></div>
+                    </div>
+                </article>
+
+                <article class="success-story-card">
+                 
+                    <div class="story-text-col">
+                        <div class="student-profile">
+                            <div class="student-avatar"><i class="fas fa-user-check"></i></div>
+                            <div class="student-meta">
+                                <h4>عماد الداية </h4>
+                                <span> مصمم واجهات </span>
+                            </div>
+                        </div>
+                        <p class="story-quote">"كنت أتعلم لحالي ومش شايف نتيجة…
+بعد ما دخلت الكورس
+بلشت أطبق صح
+وأول 200$ وصلوا 💸"</p>
+             
+                    </div>
+                    <div class="story-evidence-col">
+                        <div class="evidence-image-wrapper">
+                            <img src="images/image.png" alt="لقطة شاشة لنتيجة سارة - دخل مستمر">
+                        </div>
+                        <div class="evidence-glow"></div>
+                    </div>
+                </article>
+
+                <article class="success-story-card">
+                    <div class="story-text-col">
+                        <div class="student-profile">
+                            <div class="student-avatar"><i class="fas fa-user-check"></i></div>
+                            <div class="student-meta">
+                                <h4>دعاء السمري </h4>
+                                <span>مسوقة إلكترونية</span>
+                            </div>
+                        </div>
+                        <p class="story-quote">"أول مرة أحس تعبي إله نتيجة…
+400 شيكل من شغلي شكراً مستر غسان 🤍 "</p>
+                       
+                    </div>
+                    <div class="story-evidence-col">
+                        <div class="evidence-image-wrapper">
+                            <img src="images/4.png" alt="لقطة شاشة لنتيجة دعاء - أول طلب برمجي">
+                        </div>
+                        <div class="evidence-glow"></div>
+                    </div>
+                </article>
+
+                <article class="success-story-card">
+                    <div class="story-text-col">
+                        <div class="student-profile">
+                            <div class="student-avatar"><i class="fas fa-user-check"></i></div>
+                            <div class="student-meta">
+                                <h4>شمس</h4>
+                                <span>ترجمة وكتابة محتوى</span>
+                            </div>
+                        </div>
+                        <p class="story-quote">"شكراً الك مستر غسان على الكورس الرائع
+الكورس كان عملي جداً، شرح واضح وأمثلة حقيقية ساعدتني أطور مهاراتي بسرعة. 
+من خلاله، قدرت أحصل على شغل فريلانس على إنستا (كتابة كابشنز وترجمة محتوى و صرت اعطي كورسات اونلاين )، و هاد غير حياتي المهنية لاشي افضل 
+ف شكراً كتير ع مجهوداتك🤍✨"</p>
+                        
+                    </div>
+                    <div class="story-evidence-col">
+                        <div class="evidence-image-wrapper">
+                            <img src="images/11.jpeg" alt="لقطة شاشة لنتيجة إسراء - فهم السوق">
+                        </div>
+                        <div class="evidence-glow"></div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+  
+
+    <section class="final-cta-section">
+        <div class="container">
+            <h3 class="final-cta-h">هل أنت مستعد لتكون قصة النجاح القادمة؟</h3>
+            <p class="final-cta-p">الفرق بينك وبين هؤلاء الطلاب هو قرار واحد فقط. ابدأ الآن، طبّق الخطة، وحقّق حلمك في العمل الحر.</p>
+            <a href="https://wa.me/970595505980?text=أريد_أن_أكون_قصة_النجاح_القادمة" class="btn-neon">ابدأ رحلتك الآن</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <p>© 2026 غسان أبوحميد. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="https://wa.me/970595505980" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/g.abuhmaid01" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ghassan-abu-hmaid-429a9b33a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/g_abuhmaid02" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
