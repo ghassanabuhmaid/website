@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الدفع الآمن | غسان أبوحميد</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+
+    <a href="https://wa.me/970595505980?text=مرحبا، بدي استفسر عن خدماتكم" 
+   class="whatsapp-float" 
+   target="_blank">
+
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22">
+     <path fill="white" d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.885.76 5.59 2.086 7.94L0 32l7.87-2.06a15.9 15.9 0 0 0 8.13 2.22c8.836 0 16-7.164 16-16S24.836.396 16 .396z"/>
+   </svg>
+
+</a>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>غسان أبوحميد</h1>
+                    <span>مدرب فريلانسر</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout-section">
+        <div class="container">
+            
+            <div class="section-title">إتمام عملية الدفع الآمن</div>
+
+            <div class="checkout-grid">
+                
+                <aside class="checkout-card order-summary">
+                    <div class="card-header">
+                        <i class="fas fa-shopping-basket"></i>
+                        <h3>ملخص الطلب</h3>
+                    </div>
+                    
+                    <ul class="price-details">
+                        <li>
+                            <span>الخدمة المختارة</span>
+                            <span style="color:var(--text-main); font-weight:600">التدريب الفردي</span>
+                        </li>
+                        <li>
+                            <span>السعر الأساسي</span>
+                            <span>24.9$</span>
+                        </li>
+                        <li>
+                            <span>رسوم البوابة (3%)</span>
+                            <span>0.75$</span>
+                        </li>
+                        <li class="total">
+                            <span>الإجمالي</span>
+                            <span class="price-amount">25.5$</span>
+                        </li>
+                    </ul>
+                </aside>
+
+                <main class="checkout-card payment-form">
+                    <div class="card-header">
+                        <i class="fas fa-cash-register"></i>
+                        <h3>بيانات الدفع</h3>
+                    </div>
+
+                    <form action="process_payment.php" method="POST" id="final-checkout-form">
+                        
+                        <div class="payment-methods-fixed">
+                            
+                            <label class="method-option-fixed active-method" id="label-credit-card" data-target="credit-card-fields">
+                                <div class="method-main">
+                                    <input type="radio" name="payment_method" value="credit_card" checked required>
+                                    <span>البطاقة الائتمانية</span>
+                                </div>
+                                <div class="method-icons">
+                                    <i class="fab fa-cc-visa" title="Visa"></i>
+                                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                                </div>
+                            </label>
+
+                            <label class="method-option-fixed" id="label-paypal" data-target="paypal-fields">
+                                <div class="method-main">
+                                    <input type="radio" name="payment_method" value="paypal" required>
+                                    <span>PayPal</span>
+                                </div>
+                                <div class="method-icons">
+                                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                                </div>
+                            </label>
+                            
+                        </div>
+
+                        <div class="dynamic-payment-fields">
+
+                            <div id="credit-card-fields" class="dynamic-fields-container active-fields">
+                                <div class="form-group">
+                                    <label class="field-label">الاسم الكامل على البطاقة</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" name="card_holder" placeholder="John Doe">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="field-label">رقم البطاقة</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="card_number" name="card_number" placeholder="**** **** **** ****" maxlength="19">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                </div>
+                                <div class="card-extra-details">
+                                    <div class="form-group">
+                                        <label class="field-label">تاريخ الانتهاء</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="card_expiry" name="card_expiry" placeholder="MM/YY" maxlength="5">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="field-label">رمز الأمان (CVC)</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" name="card_cvc" placeholder="123" maxlength="4">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="paypal-fields" class="dynamic-fields-container">
+                                <div class="form-group">
+                                    <label class="field-label">بريد PayPal الإلكتروني</label>
+                                    <div class="input-wrapper">
+                                        <input type="email" name="paypal_email" placeholder="your-email@example.com">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 20px;">
+                                    سيتم توجيهك إلى صفحة PayPal الآمنة لتأكيد الدفع بعد الضغط على الزر أدناه.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="form-action">
+                            <button type="submit" class="btn-pay-final">
+                                <i class="fas fa-lock"></i>
+                                تأكيد والدفع 24.9 $
+                            </button>
+                        </div>
+
+                    </form>
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <p>© 2026 غسان أبوحميد. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="https://wa.me/970595505980" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/g.abuhmaid01" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ghassan-abu-hmaid-429a9b33a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/g_abuhmaid02" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. تعريف العناصر
+            const methodOptions = document.querySelectorAll('.method-option-fixed');
+            const dynamicFields = document.querySelectorAll('.dynamic-fields-container');
+
+            // 2. دالة التبديل (Logic)
+            function switchPaymentFields(clickedOption) {
+                
+                // أ. إزالة الكلاسات النشطة من خيارات الاختيار (Labels)
+                methodOptions.forEach(opt => opt.classList.remove('active-method'));
+                // ب. إخفاء جميع حاويات الحقول الديناميكية
+                dynamicFields.forEach(field => field.classList.remove('active-fields'));
+
+                // ج. إضافة الكلاس النشط للخيار المضغوط (لتلوينه بالنيون)
+                clickedOption.classList.add('active-method');
+
+                // د. قراءة الـ data-target وإظهار الحقول المرتبطة بها (البطاقة أو الايميل)
+                const targetId = clickedOption.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active-fields');
+            }
+
+            // 3. إضافة مستمعي الأحداث (Event Listeners)
+            methodOptions.forEach(option => {
+                // نستمع للضغطة على أي مكان داخل الليبل (بما في ذلك الراديو)
+                option.addEventListener('click', function(e) {
+                    // نقوم باستدعاء دالة التبديل
+                    switchPaymentFields(this);
+                });
+            });
+
+            // --- تنسيقات تحسين الإدخال (UX) ---
+            document.getElementById('card_number').addEventListener('input', function (e) {
+                e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
+            });
+            document.getElementById('card_expiry').addEventListener('input', function (e) {
+                e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{2})/g, '$1/').replace(/\/$/, '').trim();
+            });
+        });
+    </script>
+
+</body>
+</html>
